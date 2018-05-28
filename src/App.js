@@ -1,12 +1,33 @@
 import React, {Component} from 'react';
 
+const INITIAL = "initial";
 const ThemeContext = React.createContext('light');
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            testingValue: INITIAL
+        };
+
+    }
+
+    changeTheme() {
+        console.log("changing");
+        const current = this.state.testingValue;
+        const update = (current === INITIAL) ? "changed" : INITIAL;
+        this.setState(
+            {
+                testingValue: update
+            }
+        );
+    }
+
     render() {
         return (
-            <ThemeContext.Provider value={"some value"}>
-                <Toolbar/>
+            <ThemeContext.Provider value={this.state.testingValue}>
+                <Toolbar clicker={this.changeTheme.bind(this)}/>
             </ThemeContext.Provider>
 
         );
@@ -16,7 +37,7 @@ class App extends Component {
 function Toolbar(props) {
     return (
         <ul>
-            <li>Click this to change</li>
+            <li onClick={()=>props.clicker()}><button>click to change line below</button></li>
             <MyCustomElement/>
         </ul>
     );
