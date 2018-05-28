@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './App.css';
 
 const ThemeContext = React.createContext('light');
 
@@ -16,9 +15,10 @@ class App extends Component {
 
 function Toolbar(props) {
     return (
-        <div>
+        <ul>
+            <li>Click this to change</li>
             <MyCustomElement/>
-        </div>
+        </ul>
     );
 }
 
@@ -27,9 +27,9 @@ function MyCustomElement(props) {
     return (
         <ThemeContext.Consumer>
             {theme => (
-                <p>
+                <li>
                     {theme}
-                </p>
+                </li>
             )}
         </ThemeContext.Consumer>
     );
