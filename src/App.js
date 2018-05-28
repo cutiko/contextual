@@ -1,21 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
+const ThemeContext = React.createContext('light');
+
 class App extends Component {
-  render() {
+    render() {
+        return (
+            <ThemeContext.Provider value={"some value"}>
+                <Toolbar/>
+            </ThemeContext.Provider>
+
+        );
+    }
+}
+
+function Toolbar(props) {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div>
+            <MyCustomElement/>
+        </div>
     );
-  }
+}
+
+
+function MyCustomElement(props) {
+    return (
+        <ThemeContext.Consumer>
+            {theme => (
+                <p>
+                    {theme}
+                </p>
+            )}
+        </ThemeContext.Consumer>
+    );
 }
 
 export default App;
