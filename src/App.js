@@ -11,10 +11,17 @@ class App extends Component {
 
     }
 
-    changeTheme() {
-        console.log("changing");
-        const current = this.state.testingValue;
-        const update = (current === INITIAL) ? "changed" : INITIAL;
+    increaseCounter() {
+        const update = this.state.testingValue+1;
+        this.updateState(update);
+    }
+
+    decreaseCounter() {
+        const update = this.state.testingValue-1;
+        this.updateState(update)
+    }
+
+    updateState(update) {
         this.setState(
             {
                 testingValue: update
@@ -25,7 +32,10 @@ class App extends Component {
     render() {
         return (
             <ThemeContext.Provider value={this.state.testingValue}>
-                <Toolbar clicker={this.changeTheme.bind(this)}/>
+                <Toolbar
+                    increaser={this.increaseCounter.bind(this)}
+                    decreaser={this.decreaseCounter.bind(this)}
+                />
             </ThemeContext.Provider>
 
         );
@@ -35,7 +45,8 @@ class App extends Component {
 function Toolbar(props) {
     return (
         <ul>
-            <li onClick={()=>props.clicker()}><button>click to change line below</button></li>
+            <li onClick={()=>props.increaser()}><button>click to increase counter</button></li>
+            <li onClick={()=>props.decreaser()}><button>click to decrease counter</button></li>
             <MyCustomElement/>
         </ul>
     );
