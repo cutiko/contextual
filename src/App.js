@@ -6,32 +6,32 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            testingValue: INITIAL
+            counter: INITIAL
         };
 
     }
 
     increaseCounter() {
-        const update = this.state.testingValue+1;
+        const update = this.state.counter+1;
         this.updateState(update);
     }
 
     decreaseCounter() {
-        const update = this.state.testingValue-1;
+        const update = this.state.counter-1;
         this.updateState(update)
     }
 
     updateState(update) {
         this.setState(
             {
-                testingValue: update
+                counter: update
             }
         );
     }
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state.testingValue}>
+            <ThemeContext.Provider value={this.state.counter}>
                 <Toolbar
                     increaser={this.increaseCounter.bind(this)}
                     decreaser={this.decreaseCounter.bind(this)}
