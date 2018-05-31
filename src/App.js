@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {INITIAL, ThemeContext} from "./theme-context";
+import SimpleList from "./SimpleList";
+
 
 class App extends Component {
 
@@ -12,13 +14,13 @@ class App extends Component {
     }
 
     increaseCounter() {
-        const update = this.state.counter+1;
+        const update = this.state.counter + 1;
         this.updateState(update);
     }
 
     decreaseCounter() {
-        const update = this.state.counter-1;
-        this.updateState(update)
+        const update = this.state.counter - 1;
+        this.updateState(update);
     }
 
     updateState(update) {
@@ -32,37 +34,13 @@ class App extends Component {
     render() {
         return (
             <ThemeContext.Provider value={this.state.counter}>
-                <Toolbar
+                <SimpleList
                     increaser={this.increaseCounter.bind(this)}
-                    decreaser={this.decreaseCounter.bind(this)}
-                />
+                    decreaser={this.decreaseCounter.bind(this)}/>
             </ThemeContext.Provider>
 
         );
     }
-}
-
-function Toolbar(props) {
-    return (
-        <ul>
-            <li onClick={()=>props.increaser()}><button>click to increase counter</button></li>
-            <li onClick={()=>props.decreaser()}><button>click to decrease counter</button></li>
-            <MyCustomElement/>
-        </ul>
-    );
-}
-
-
-function MyCustomElement(props) {
-    return (
-        <ThemeContext.Consumer>
-            {theme => (
-                <li>
-                    counter: {theme}
-                </li>
-            )}
-        </ThemeContext.Consumer>
-    );
 }
 
 export default App;
