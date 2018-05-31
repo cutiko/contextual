@@ -58,7 +58,7 @@ function MyCustomElement(props) {
         <ThemeContext.Consumer>
             {theme => (
                 <li>
-                    {theme}
+                    counter: {theme}
                 </li>
             )}
         </ThemeContext.Consumer>
