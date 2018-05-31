@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
-const INITIAL = "initial";
-const ThemeContext = React.createContext('light');
+import {INITIAL, ThemeContext} from "./theme-context";
 
 class App extends Component {
 
