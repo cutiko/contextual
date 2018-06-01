@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import ThemeContext from './theme-context'
+import ThemeContext from './theme-context';
 
 function Visualizer() {
     return (
         <ThemeContext.Consumer>
             {
-                rtd =>(
+                rtd => (
                     <Child rtd={rtd}/>
                 )
             }
@@ -21,20 +21,40 @@ class Child extends Component {
         super(props);
         this.state = {
             consumer: "Please wait",
+            reference: null,
+            listener: null
         };
     }
 
     componentDidMount() {
         const rtd = this.props.rtd;
-        if (rtd) {
+        if (rtd && !this.state.reference && !this.state.listener) {
+            const reference = rtd.ref('consumer');
             const context = this;
-            rtd.ref('consumer').on('value', function (snapshot) {
+            const listener = function (snapshot) {
                 const value = snapshot.val();
                 console.log("consumer:", value);
                 if (snapshot.exists()) {
-                    context.setState({consumer:value})
+                    context.setState({consumer: value});
                 }
-            });
+            };
+            this.setState(
+                {
+                    reference: reference,
+                    listener: listener
+                }
+            );
+            reference.on('value', listener);
+        }
+    }
+
+    componentWillUnmount() {
+        console.log("UNMOUNTING");
+        const reference = this.state.reference;
+        const listener = this.state.listener;
+        if (reference && listener) {
+            console.log("CLEANING");
+            reference.off(listener);
         }
     }
 
