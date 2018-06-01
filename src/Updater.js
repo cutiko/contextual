@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ThemeContext} from "./theme-context";
 
-export default class Counter extends Component {
+export default class Updater extends Component {
 
     defineRender(rtd) {
         if (!rtd) {
