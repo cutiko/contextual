@@ -4,9 +4,8 @@ import {ThemeContext} from "./theme-context";
 function Counter(props) {
     return (
         <ThemeContext.Consumer>
-            {theme => (
-                <li>
-                    counter: {theme}
+            {rtd => (
+                <li onClick={()=>rtd.ref('consumer').set('is working')}>CLICK
                 </li>
             )}
         </ThemeContext.Consumer>

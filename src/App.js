@@ -1,26 +1,28 @@
-import React, {Component} from 'react';
-import {INITIAL, ThemeContext} from "./theme-context";
-import SimpleList from "./SimpleList";
 
+import React, {Component} from 'react';
+import {ThemeContext} from "./theme-context";
+import SimpleList from "./SimpleList";
+import config from "./fire-config";
+const firebase = require('firebase/app');
+require('firebase/database');
+firebase.initializeApp(config);
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            counter: INITIAL
+            rtd: firebase.database()
         };
 
     }
 
     increaseCounter() {
-        const update = this.state.counter + 1;
-        this.updateState(update);
+
     }
 
     decreaseCounter() {
-        const update = this.state.counter - 1;
-        this.updateState(update);
+
     }
 
     updateState(update) {
@@ -33,7 +35,7 @@ class App extends Component {
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state.counter}>
+            <ThemeContext.Provider value={this.state.rtd}>
                 <SimpleList
                     increaser={this.increaseCounter.bind(this)}
                     decreaser={this.decreaseCounter.bind(this)}/>
