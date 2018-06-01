@@ -2,20 +2,31 @@ import React, {Component} from 'react';
 import Updater from "./Updater";
 import Visualizer from "./Visualizer";
 
-class SimpleList extends Component{
+const UNMOUNT = "Unmount the component";
+const LISTEN = "Re-attach the component";
+
+class SimpleList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            listening: true
+            text: UNMOUNT
         };
     }
 
     isVisualizer() {
-        if (this.state.listening) {
-            return <Visualizer/>
+        if (UNMOUNT === this.state.text) {
+            return <Visualizer/>;
         }
-        return <li>Listening has stop</li>
+        return <li>Listening has stop</li>;
+    }
+
+    updateListener() {
+        const text = this.state.text;
+        this.setState({
+            text: (UNMOUNT === text) ? LISTEN : UNMOUNT
+        });
+
     }
 
     render() {
@@ -23,7 +34,9 @@ class SimpleList extends Component{
             <ul>
                 <Updater/>
                 {this.isVisualizer()}
-                <li><button onClick={()=>this.setState({listening:false})}>Unmount</button></li>
+                <li>
+                    <button onClick={() => this.updateListener()}>{this.state.text}</button>
+                </li>
             </ul>
         );
     }
