@@ -54,7 +54,7 @@ class Child extends Component {
         const listener = this.state.listener;
         if (reference && listener) {
             console.log("CLEANING");
-            reference.off(listener);
+            reference.off('value', listener);
         }
     }
 
