@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ThemeContext} from "./theme-context";
+import ThemeContext from "./theme-context";
 
 export default class Updater extends Component {
 

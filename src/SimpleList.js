@@ -1,12 +1,12 @@
 import React from 'react';
 import Updater from "./Updater";
+import Visualizer from "./Visualizer";
 
 function SimpleList(props) {
     return (
         <ul>
             <Updater/>
-            <li onClick={()=>props.increaser()}><button>click to increase counter</button></li>
-            <li onClick={()=>props.decreaser()}><button>click to decrease counter</button></li>
+            <Visualizer/>
         </ul>
     );
 }
