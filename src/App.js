@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import ThemeContext from "./theme-context";
+import FirebaseContext from "./firebase-context";
 import SimpleList from "./SimpleList";
 import config from "./fire-config";
 const firebase = require('firebase/app');
@@ -19,9 +19,9 @@ class App extends Component {
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state.rtd}>
+            <FirebaseContext.Provider value={this.state.rtd}>
                 <SimpleList/>
-            </ThemeContext.Provider>
+            </FirebaseContext.Provider>
 
         );
     }

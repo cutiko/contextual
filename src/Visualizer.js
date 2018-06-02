@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import ThemeContext from './theme-context';
+import FirebaseContext from './firebase-context';
 
 function Visualizer() {
     return (
-        <ThemeContext.Consumer>
+        <FirebaseContext.Consumer>
             {
                 rtd => (
                     <Child rtd={rtd}/>
                 )
             }
-        </ThemeContext.Consumer>
+        </FirebaseContext.Consumer>
     );
 }
 
