@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import FirebaseContext from "./firebase-context";
-import timeSetter from "./broadcasters/timeSetter";
 
 export default class Updater extends Component {
 
@@ -9,7 +8,7 @@ export default class Updater extends Component {
             return (<li>Wait Please</li>);
         }
         return (
-            <li onClick={() => timeSetter(rtd)}>
+            <li onClick={() => rtd.ref('consumer').set(Date.now())}>
                 <button>Click to update</button>
             </li>
         );
