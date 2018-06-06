@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Updater from "./Updater";
+import TimeUpload from "./publishers/TimeUpload";
 import LiveTime from './subscribers/LiveTime'
 
 const UNMOUNT = "Unmount the component";
@@ -32,7 +32,7 @@ class SimpleList extends Component {
     render() {
         return (
             <ul>
-                <Updater/>
+                <TimeUpload/>
                 {this.isVisualizer()}
                 <li>
                     <button onClick={() => this.updateListener()}>{this.state.text}</button>
