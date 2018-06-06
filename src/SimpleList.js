@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Updater from "./Updater";
-import Visualizer from "./Visualizer";
+import LiveTime from './subscribers/LiveTime'
 
 const UNMOUNT = "Unmount the component";
 const LISTEN = "Re-attach the component";
@@ -16,7 +16,7 @@ class SimpleList extends Component {
 
     isVisualizer() {
         if (UNMOUNT === this.state.text) {
-            return <Visualizer/>;
+            return <LiveTime/>;
         }
         return <li>Listening has stop</li>;
     }

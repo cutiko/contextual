@@ -8,7 +8,7 @@ export default class Updater extends Component {
             return (<li>Wait Please</li>);
         }
         return (
-            <li onClick={() => rtd.ref('consumer').set(Date.now())}>
+            <li onClick={() => rtd.ref('real_time').set(Date.now())}>
                 <button>Click to update</button>
             </li>
         );
