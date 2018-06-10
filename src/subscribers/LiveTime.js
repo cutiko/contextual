@@ -31,7 +31,7 @@ class LiveTime extends Component {
         const value = snapshot.val() || "Nothing found";
         console.log("value", value);
         this.setState({
-           text: snapshot.val()
+           text: value
         });
     }
 
