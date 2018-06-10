@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import FirebaseContext from "./firebase-context";
-import SimpleList from "./SimpleList";
+import MainGrid from "./components/MainGrid";
 import config from "./fire-config";
 const firebase = require('firebase/app');
 require('firebase/database');
@@ -20,7 +20,7 @@ class App extends Component {
     render() {
         return (
             <FirebaseContext.Provider value={this.state.rtd}>
-                <SimpleList/>
+                <MainGrid/>
             </FirebaseContext.Provider>
 
         );

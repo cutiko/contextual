@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import TimeUpload from "./publishers/LiveUpload";
-import LiveTime from './subscribers/LiveTime';
+import TimeUpload from "../publishers/LiveUpload";
+import LiveTime from '../subscribers/LiveTime';
 
 const UNMOUNT = "Unmount the component";
 const LISTEN = "Re-attach the component";
 
-class SimpleList extends Component {
+class MainGrid extends Component {
 
     constructor(props) {
         super(props);
@@ -54,4 +54,4 @@ class SimpleList extends Component {
 
 }
 
-export default SimpleList;
+export default MainGrid;
