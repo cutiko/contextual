@@ -1,12 +1,14 @@
 import React from 'react';
 import BaseColumn from './BaseColumn';
-import LiveupLoad from '../../publishers/LiveUpload';
 import LiveTime from '../../subscribers/LiveTime';
+import real_time from "../../consumers/real_time";
+import UploadButton from "../../publishers/UploadButton";
 
 export default class LeftColumn extends BaseColumn {
 
     getActionButton() {
-        return <LiveupLoad/>
+        const LiveBtn = real_time(UploadButton);
+        return <LiveBtn/>
     }
 
     getToggleable() {

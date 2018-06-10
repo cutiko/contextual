@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import real_time from "../consumers/real_time";
 import TimeButton from '../components/timeButton'
 
-class LiveUpload extends Component {
+export default class UploadButton extends Component {
 
     upload(value) {
-        this.props.reference.set(value);
+        const reference = this.props.reference;
+        console.log(`Time upload to RTD node ${reference.key}:`, value);
+        reference.set(value);
     }
 
     render() {
@@ -15,5 +16,3 @@ class LiveUpload extends Component {
     }
 
 }
-
-export default real_time(LiveUpload);
