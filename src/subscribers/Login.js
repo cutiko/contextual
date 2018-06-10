@@ -20,9 +20,9 @@ class Login extends Component {
     render() {
 
         return (
-            <Fragment>
+            <div className="w-full flex flex-wrap justify-center p-8 m-8">
                 {this.getView()}
-            </Fragment>
+            </div>
         );
     }
 
