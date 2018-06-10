@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import auth from "../consumers/auth";
 import FirebaseUiAuth from 'react-firebaseui/FirebaseAuth';
 
