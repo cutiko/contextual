@@ -13,6 +13,7 @@ class MainGrid extends Component {
                 <RightColumn
                     title={"One Time Example"}
                     content={"The component can send the current time to the Firebase RTD but only listen once. You can send the value again, too see it: unmoun and re-attach"}/>
+                <div className="p-4 m-4 text-center bg-teal-lightest w-full">You can open the console to see more details</div>
             </div>
         );
     }
