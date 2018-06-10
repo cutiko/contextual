@@ -20,10 +20,15 @@ class SingleTime extends Component {
 
     handleChange(snapshot) {
         const value = snapshot.val() || "Nothing found";
-        console.log("value", value);
+        console.log("One time listener:", value);
         this.setState({
            text: value
         });
+    }
+
+    componentWillUnmount() {
+        //Not needed lifecycle, purely educational
+        console.log("Detaching one time listener, re-attach it to see latest value");
     }
 
     render() {

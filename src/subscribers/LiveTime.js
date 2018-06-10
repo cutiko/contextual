@@ -22,14 +22,14 @@ class LiveTime extends Component {
     componentWillUnmount() {
         const reference = this.props.reference;
         if (reference) {
-            console.log("CLEANING");
+            console.log("Detaching real time listener, further uploads won't cause force state error");
             reference.off('value', this.handleChange);
         }
     }
 
     handleChange(snapshot) {
         const value = snapshot.val() || "Nothing found";
-        console.log("value", value);
+        console.log("Real time listener:", value);
         this.setState({
            text: value
         });
