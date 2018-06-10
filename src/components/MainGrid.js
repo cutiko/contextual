@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import LeftColumn from './LeftColumn';
+import RigthColumn from './RigthColumn';
 
 class MainGrid extends Component {
 
@@ -7,9 +8,7 @@ class MainGrid extends Component {
         return (
             <div className="flex flex-wrap p-3">
                 <LeftColumn/>
-                <div className="w-full md:w-1/2">
-                    RIGHT COLUMN
-                </div>
+                <RigthColumn/>
             </div>
         );
     }
