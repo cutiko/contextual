@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
 import LeftColumn from './columns/LeftColumn';
 import RightColumn from './columns/RightColumn';
+import auth from "../consumers/auth";
 
 class MainGrid extends Component {
+
+    isAuth() {
+        const WrappedAuth = auth(authComponent);
+        return <WrappedAuth/>
+    }
 
     render() {
         return (
             <div className="flex flex-wrap p-3">
+                {this.isAuth()}
                 <LeftColumn
                     title={"Real Time Example"}
                     content={"The component can send the current time to the Firebase RTD and stay listening to it. When is unmount the listener will be shut down and turn on again when is mounted."}/>
@@ -18,6 +25,10 @@ class MainGrid extends Component {
         );
     }
 
+}
+
+function authComponent(props) {
+    return (props.auth) ? <p>WE HAVE AUTH</p> : <p>NO AUTH</p>;
 }
 
 export default MainGrid;

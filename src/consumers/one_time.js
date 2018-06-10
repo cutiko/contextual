@@ -6,8 +6,9 @@ export default function (SubscriberComponent) {
         return(
             <FirebaseContext.Consumer>
                 {
-                    rtd => (
-                        <SubscriberComponent reference={rtd.ref('one_time')}/>
+                    firebase => (
+                        <SubscriberComponent
+                            reference={firebase.rtd.ref('one_time')}/>
                     )
                 }
             </FirebaseContext.Consumer>

@@ -8,7 +8,7 @@ export default function (SubscriberComponent) {
                 {
                     firebase => (
                         <SubscriberComponent
-                            reference={firebase.rtd.ref('real_time')}/>
+                            auth={firebase.auth}/>
                     )
                 }
             </FirebaseContext.Consumer>
