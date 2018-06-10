@@ -8,7 +8,7 @@ export default function (SubscriberComponent) {
                 {
                     auth => (
                         <SubscriberComponent
-                            currentUser={auth.currentUser}/>
+                            currentUser={auth.auth}/>
                     )
                 }
             </AuthContext.Consumer>
