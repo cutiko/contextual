@@ -1,17 +1,17 @@
 import React from 'react';
-import FirebaseContext from '../firebase-context';
+import AuthContext from '../context/auth-context';
 
 export default function (SubscriberComponent) {
     return function(props) {
         return(
-            <FirebaseContext.Consumer>
+            <AuthContext.Consumer>
                 {
-                    firebase => (
+                    currentUser => (
                         <SubscriberComponent
-                            auth={firebase.auth}/>
+                            currentUser={currentUser}/>
                     )
                 }
-            </FirebaseContext.Consumer>
+            </AuthContext.Consumer>
         );
     };
 

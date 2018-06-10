@@ -1,17 +1,17 @@
 import React from 'react';
-import FirebaseContext from '../firebase-context';
+import DatabaseContext from '../context/database-context';
 
 export default function (SubscriberComponent) {
     return function(props) {
         return(
-            <FirebaseContext.Consumer>
+            <DatabaseContext.Consumer>
                 {
-                    firebase => (
+                    rtd => (
                         <SubscriberComponent
-                            reference={firebase.rtd.ref('one_time')}/>
+                            reference={rtd.ref('one_time')}/>
                     )
                 }
-            </FirebaseContext.Consumer>
+            </DatabaseContext.Consumer>
         );
     };
 

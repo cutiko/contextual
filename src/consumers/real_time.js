@@ -1,17 +1,17 @@
 import React from 'react';
-import FirebaseContext from '../firebase-context';
+import DatabaseContext from '../context/database-context';
 
 export default function (SubscriberComponent) {
     return function(props) {
         return(
-            <FirebaseContext.Consumer>
+            <DatabaseContext.Consumer>
                 {
-                    firebase => (
+                    rtd => (
                         <SubscriberComponent
-                            reference={firebase.rtd.ref('real_time')}/>
+                            reference={rtd.ref('real_time')}/>
                     )
                 }
-            </FirebaseContext.Consumer>
+            </DatabaseContext.Consumer>
         );
     };
 

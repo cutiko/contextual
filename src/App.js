@@ -1,8 +1,6 @@
-
 import React, {Component} from 'react';
-import FirebaseContext from "./firebase-context";
-import MainGrid from "./components/MainGrid";
 import config from "./fire-config";
+import FirebaseContext from "./context/FirebaseContext";
 const firebase = require('firebase/app');
 require('firebase/database');
 require('firebase/auth');
@@ -20,10 +18,9 @@ class App extends Component {
 
     render() {
         return (
-            <FirebaseContext.Provider value={this.state}>
-                <MainGrid/>
-            </FirebaseContext.Provider>
-
+            <FirebaseContext
+                rtd={this.state.rtd}
+                auth={this.state.auth}/>
         );
     }
 }

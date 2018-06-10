@@ -28,7 +28,7 @@ class MainGrid extends Component {
 }
 
 function authComponent(props) {
-    return (props.auth) ? <p>WE HAVE AUTH</p> : <p>NO AUTH</p>;
+    return (props.currentUser) ? <p>USER IS LOGGED</p> : <p>NO USER</p>;
 }
 
 export default MainGrid;
