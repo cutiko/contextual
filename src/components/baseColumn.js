@@ -22,7 +22,7 @@ export default function (ActionButton, ToggableComponent, title, content) {
 
         render() {
             return (
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 p-1">
                     <h3 className="bg-blue-light h-10 text-center pt-2">{title}</h3>
                     {this.showToggle()}
                     <div className="flex content-center p-8">
