@@ -1,20 +1,28 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import auth from "../consumers/auth";
+import FirebaseUiAuth from 'react-firebaseui/FirebaseAuth';
 
-class Login extends Component{
+class Login extends Component {
 
-    createUser() {
-        this.props.auth.createUserWithEmailAndPassword("test@test.com", "12345678").catch(function(error) {
-            console.log("LOGIN ERROR:", error);
-        });
+    getView() {
+        const auth = this.props.auth;
+        const firebase = this.props.firebase;
+        const uiConfig = {
+            signInFlow: 'popup',
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ]
+        };
+
+        return (auth && firebase) ? <FirebaseUiAuth uiConfig={uiConfig} firebaseAuth={auth}/> : <p>Please Wait...</p>;
     }
 
     render() {
+
         return (
-            <button
-                onClick={()=> this.createUser()}
-                className="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded"
-            >CREATE TEST USER</button>
+            <Fragment>
+                {this.getView()}
+            </Fragment>
         );
     }
 

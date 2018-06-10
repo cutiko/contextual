@@ -20,7 +20,7 @@ export default class FirebaseContext extends Component {
     }
 
     userState(user) {
-        console.log("AUTH:", user);
+        console.log("Current authentication is:", user);
         this.setState({currentUser: user});
     }
 
@@ -29,6 +29,7 @@ export default class FirebaseContext extends Component {
             <AuthContext.Provider
                 value={
                     {
+                        firebase: this.props.firebase,
                         currentUser: this.state.currentUser,
                         auth: this.props.auth
                     }

@@ -11,6 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            firebase: firebase,
             rtd: firebase.database(),
             auth: firebase.auth()
         };
@@ -20,7 +21,8 @@ class App extends Component {
         return (
             <FirebaseContext
                 rtd={this.state.rtd}
-                auth={this.state.auth}/>
+                auth={this.state.auth}
+                firebase={this.state.firebase}/>
         );
     }
 }

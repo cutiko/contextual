@@ -8,6 +8,7 @@ export default function (SubscriberComponent) {
                 {
                     auth => (
                         <SubscriberComponent
+                            firebase={auth.firebase}
                             auth={auth.auth}/>
                     )
                 }
