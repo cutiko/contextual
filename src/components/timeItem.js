@@ -7,7 +7,6 @@ export default function (props) {
 }
 
 function convertDate(time) {
-    console.log(typeof time);
     if (typeof time === "string") {
         return time;
     }
