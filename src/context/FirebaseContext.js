@@ -26,7 +26,13 @@ export default class FirebaseContext extends Component {
 
     render() {
         return (
-            <AuthContext.Provider value={this.state.currentUser}>
+            <AuthContext.Provider
+                value={
+                    {
+                        currentUser: this.state.currentUser,
+                        auth: this.props.auth
+                    }
+                }>
                 <DatabaseContext.Provider value={this.props.rtd}>
                     <MainGrid/>
                 </DatabaseContext.Provider>
