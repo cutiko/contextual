@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import TimeUpload from "./publishers/TimeUpload";
-import LiveTime from './subscribers/LiveTime'
+import TimeUpload from "./publishers/LiveUpload";
+import LiveTime from './subscribers/LiveTime';
 
 const UNMOUNT = "Unmount the component";
 const LISTEN = "Re-attach the component";
@@ -18,7 +18,6 @@ class SimpleList extends Component {
         if (UNMOUNT === this.state.text) {
             return <LiveTime/>;
         }
-        return <li>Listening has stop</li>;
     }
 
     updateListener() {
@@ -31,13 +30,25 @@ class SimpleList extends Component {
 
     render() {
         return (
-            <ul>
-                <TimeUpload/>
-                {this.isVisualizer()}
-                <li>
-                    <button onClick={() => this.updateListener()}>{this.state.text}</button>
-                </li>
-            </ul>
+            <div className="flex flex-wrap p-3">
+                <div className="w-full md:w-1/2">
+                    <h3 className="bg-blue-light h-10 text-center pt-2">Real Time Example</h3>
+                    {this.isVisualizer()}
+                    <div className="flex content-center p-8">
+                        <TimeUpload/>
+                        <button
+                            className="bg-red hover:bg-red-dark text-white font-bold py-2 px-4 rounded w-full md:w-1/2 ml-2"
+                            onClick={() => this.updateListener()}>
+                            {this.state.text}
+                        </button>
+                    </div>
+                    <p className="p-2 text-center bg-yellow-lightest">The component can send the current time to the Firebase RTD and stay listening to it.
+                        When is unmount the listener will be shut down and turn on again when is mounted.</p>
+                </div>
+                <div className="w-full md:w-1/2">
+
+                </div>
+            </div>
         );
     }
 
