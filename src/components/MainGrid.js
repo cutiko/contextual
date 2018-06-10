@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import LeftColumn from './columns/LeftColumn';
 import RightColumn from './columns/RightColumn';
-import auth from "../consumers/auth";
+import user from "../consumers/user";
 
 class MainGrid extends Component {
 
     isAuth() {
-        const WrappedAuth = auth(authComponent);
+        const WrappedAuth = user(authComponent);
         return <WrappedAuth/>
     }
 
