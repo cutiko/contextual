@@ -3,6 +3,7 @@ import user from "../consumers/user";
 import LeftColumn from '../components/columns/LeftColumn'
 import RightColumn from '../components/columns/RightColumn'
 import Login from '../subscribers/Login'
+import Logout from '../subscribers/Logout'
 
 class SignUp extends Component {
 
@@ -17,6 +18,7 @@ class SignUp extends Component {
                     <RightColumn
                         title={"One Time Example"}
                         content={"The component can send the current time to the Firebase RTD but only listen once. You can send the value again, too see it: unmoun and re-attach"}/>
+                    <Logout/>
                 </Fragment>
             );
         } else {
